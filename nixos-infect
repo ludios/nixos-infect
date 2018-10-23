@@ -137,32 +137,6 @@ prepareEnv() {
 	export USER="root"
 	export HOME="/root"
 
-	# Use adapted wget if curl is missing
-	which curl || { \
-		curl() {
-			eval "wget $(
-				(local isStdout=1
-				for arg in "$@"; do
-					case "$arg" in
-						"-o")
-							echo "-O";
-							isStdout=0
-							;;
-						"-O")
-							isStdout=0
-							;;
-						"-L")
-							;;
-						*)
-							echo "$arg"
-							;;
-					esac
-				done;
-				[[ $isStdout -eq 1 ]] && echo "-O-"
-				)| tr '\n' ' '
-			)"
-		}; export -f curl; }
-
 	# Nix installer tries to use sudo regardless of whether we're already uid 0  
 	#which sudo || { sudo() { eval "$@"; }; export -f sudo; }
 	# shellcheck disable=SC2174
@@ -183,13 +157,13 @@ checkEnv() {
 
 	[[ "$(whoami)" == "root" ]] || { echo "ERROR: Must run as root"; return 1; }
 
-	req curl || req wget || { echo "ERROR: Missing both curl and wget"; return 1; }
-	req bzcat            || { echo "ERROR: Missing bzcat";              return 1; }
-	req groupadd         || { echo "ERROR: Missing groupadd";           return 1; }
-	req useradd          || { echo "ERROR: Missing useradd";            return 1; }
-	req ip               || { echo "ERROR: Missing ip";                 return 1; }
-	req awk              || { echo "ERROR: Missing awk";                return 1; }
-	req cut              || { echo "ERROR: Missing cut";                return 1; }
+	req curl     || { echo "ERROR: Missing curl";     return 1; }
+	req bzcat    || { echo "ERROR: Missing bzcat";    return 1; }
+	req groupadd || { echo "ERROR: Missing groupadd"; return 1; }
+	req useradd  || { echo "ERROR: Missing useradd";  return 1; }
+	req ip       || { echo "ERROR: Missing ip";       return 1; }
+	req awk      || { echo "ERROR: Missing awk";      return 1; }
+	req cut      || { echo "ERROR: Missing cut";      return 1; }
 }
 
 infect() {
