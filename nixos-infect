@@ -100,7 +100,7 @@ EOF
 	'';
 }
 EOF
-	#! /usr/bin/env bash
+	#!/usr/bin/env bash
 	# NB put your semi-sensitive (not posted to github) configuration in a separate
 	# file and include it via this customConfig() function. e.g.:
 	#  customConfig() {
