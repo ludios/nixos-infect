@@ -14,11 +14,9 @@ nixos-infect is so named because of the high likelihood of rendering a system
 inoperable. Use with caution and preferably only on newly-provisioned
 systems.
 
-*WARNING NB*: This script wipes out the targeted host's root filesystem when it
-runs to completion. Any errors halt execution. It's advised to run with
-`bash -x` to help debug, as often a failed run leaves the system in an
-inconsistent state, requiring a rebuild (in DigitalOcean panel: Droplet
-Settings -> "Destroy" -> "Rebuild from original").
+This script uses the [NIXOS_LUSTRATE mechanism](https://github.com/NixOS/nixpkgs/pull/17784)
+to finish the installation.  After reboot, the old contents of the host's root
+filesystem are moved to `/old-root`.
 
 *TO USE:*
 - Add any custom config you want (see notes below)
