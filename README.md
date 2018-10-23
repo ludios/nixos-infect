@@ -1,3 +1,6 @@
+nixos-infect
+===
+
 This script aims to install NixOS on Digital Ocean droplets
 (starting from one of the distros that Digital Ocean supports out of the box)
 
@@ -60,3 +63,14 @@ to root (/nixos instead), left dregs of the old filesystem (almost always
 unnecessary since starting from a fresh deployment), and most importantly,
 simply didn't work for me! (old system was being because grub wasnt properly
 reinstalled)
+
+
+Notice
+---
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
