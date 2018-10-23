@@ -120,8 +120,8 @@ makeSwap() {
 	swapFile=$(mktemp /tmp/nixos-infect.XXXXX.swp)
 	dd if=/dev/zero "of=$swapFile" bs=1M count=$((1*1024))
 	chmod 0600 "$swapFile"
-	mkswap "$swapFile"
-	swapon -v "$swapFile"
+	mkswap     "$swapFile"
+	swapon -v  "$swapFile"
 }
 
 removeSwap() {
