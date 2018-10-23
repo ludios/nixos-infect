@@ -1,0 +1,4 @@
+#!/bin/sh
+
+curl https://nixos.org/nix/install > install-nix
+chmod +x install-nix
