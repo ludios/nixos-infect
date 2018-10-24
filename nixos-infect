@@ -195,7 +195,7 @@ infect() {
 		-p /nix/var/nix/profiles/system \
 		-A system
 
-	# Remove nix installed with curl | bash
+	# Remove nix installed by ./install-nix
 	rm -fv /nix/var/nix/profiles/default*
 	/nix/var/nix/profiles/system/sw/bin/nix-collect-garbage
 
